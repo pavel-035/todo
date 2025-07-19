@@ -3,6 +3,7 @@
 
 <template>
   <div>
+    <app-modal-container />
   </div>
 </template>
 

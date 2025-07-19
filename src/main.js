@@ -2,8 +2,14 @@ import { createApp } from 'vue'
 import './style.css'
 import App from './App.vue'
 import indexDB from "./indexDB";
+import { useModalService } from '~/services/modalService'
+import AppModalContainer from '~/components/AppModalContainer.vue'
 
 const app = createApp(App)
+
+// init ModalService
+const modalService = useModalService()
+app.provide('modalService', modalService)
 
 // components and ui registration
 const vueFiles = import.meta.glob(
