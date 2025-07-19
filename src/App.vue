@@ -3,7 +3,6 @@
 
 <template>
   <div>
-
   </div>
 </template>
 
