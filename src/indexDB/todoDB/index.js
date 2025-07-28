@@ -5,7 +5,7 @@ import statusesTable from './statusesTable.js'
 import tagsTable from "~/indexDB/todoDB/tagsTable.js";
 
 const DB_NAME = 'todo'
-const DB_VERSION = 5
+const DB_VERSION = 6
 
 const todoDB = {
     dbPromise: null,
