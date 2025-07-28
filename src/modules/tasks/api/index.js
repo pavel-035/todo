@@ -46,4 +46,13 @@ async function deleteTask (id) {
     }
 }
 
-export default { getTasks, getTaskById, createTask, updateTask, deleteTask }
+
+async function getStatuses () {
+  try {
+    return await todoDB.statuses.getAll()
+  } catch (error) {
+    console.error(error)
+  }
+}
+
+export default { getTasks, getTaskById, createTask, updateTask, deleteTask, getStatuses }

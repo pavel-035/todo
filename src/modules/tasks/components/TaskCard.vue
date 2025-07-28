@@ -1,17 +1,25 @@
 <script setup>
+import { useTasksStore } from "~/modules/tasks/store/useTasksStore.js";
 
 import BCard from "~/ui-kit/BCard.vue";
+import TaskEditor from "~/modules/tasks/components/TaskEditor.vue";
+import TaskDel from "~/modules/tasks/components/TaskDel.vue";
 
+// store
+const tasksStore = useTasksStore()
+
+// props & emit
 const props = defineProps({
   task: {
     type: Object,
     required: true,
-    validator(value) {
-      return ['id', 'title', 'status', 'tags', 'subtasks', 'createdAt', 'updatedAt']
-        .every(key => value.hasOwnProperty(key))
-    }
+    // validator(value) {
+    //   return ['id', 'title', 'status', 'tags', 'subtasks', 'createdAt', 'updatedAt']
+    //     .every(key => value.hasOwnProperty(key))
+    // }
   }
 })
+const emit = defineEmits(['update'])
 
 </script>
 
@@ -21,7 +29,7 @@ const props = defineProps({
       <div class="task-card__header flex justify-between align-items-center">
         <span class="task-card__name">{{ task.title }}</span>
         <div v-if="task.status" class="task-card__status">
-          <b-label :label="task.status" />
+          <b-label :label="tasksStore.getStatusLabelByID(task.status_id)" />
         </div>
       </div>
     </template>
@@ -50,9 +58,15 @@ const props = defineProps({
     </template>
     <template #footer>
       <div class="task-card__footer flex justify-end gap-1">
-        <b-button label="delete"/>
-        <b-button label="edit"/>
-        <b-button label="open"/>
+        <task-editor
+          is-edit
+          :task-id="task.id"
+          @update="emit('update')"
+        />
+        <task-del
+          :task-id="task.id"
+          @update="emit('update')"
+        />
       </div>
     </template>
   </b-card>
