@@ -1,9 +1,11 @@
 <script setup>
+import { container as WidgetContainerModal } from 'jenesius-vue-modal'
 </script>
 
 <template>
   <div>
-    <app-modal-container />
+    <router-view />
+    <widget-container-modal />
   </div>
 </template>
 
