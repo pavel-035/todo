@@ -1,15 +1,13 @@
 import { createApp } from 'vue'
 import './style.css'
 import App from './App.vue'
-import indexDB from "./indexDB";
-import { useModalService } from '~/services/modalService'
-import AppModalContainer from '~/components/AppModalContainer.vue'
+import router from './router'
+import { createPinia } from 'pinia'
+
+import indexDB from './indexDB'
 
 const app = createApp(App)
-
-// init ModalService
-const modalService = useModalService()
-app.provide('modalService', modalService)
+const pinia = createPinia()
 
 // components and ui registration
 const vueFiles = import.meta.glob(
@@ -43,6 +41,8 @@ Object.values(moduleIndexes).forEach(mod => {
 async function initApp() {
     await indexDB.init()
 
+    app.use(router)
+    app.use(pinia)
     app.mount('#app')
 }
 
