@@ -1,7 +1,7 @@
 <script setup>
   import { useSlots } from 'vue'
 
-  import BButton from '~/ui/BButton.vue'
+  import BButton from '~/ui-kit/BButton.vue'
 
   // helpers
   const slots = useSlots()

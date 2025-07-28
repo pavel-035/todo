@@ -1,6 +1,6 @@
 <script setup>
-import BCard from "~/ui/BCard.vue";
-import BButton from "~/ui/BButton.vue";
+import BCard from "~/ui-kit/BCard.vue";
+import BButton from "~/ui-kit/BButton.vue";
 import ProjectDel from "~/modules/projects/components/ProjectDel.vue";
 import ProjectEditor from "~/modules/projects/components/ProjectEditor.vue";
 

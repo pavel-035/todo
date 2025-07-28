@@ -5,7 +5,7 @@
 
   import projectsApi from '../api'
 
-  import BButton from '~/ui/BButton.vue'
+  import BButton from '~/ui-kit/BButton.vue'
   import ProjectModalEditor from '~/modules/projects/components/modals/ProjectModalEditor.vue'
 
   // props & emits

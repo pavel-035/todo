@@ -1,6 +1,6 @@
 <script setup>
 
-import BCard from "~/ui/BCard.vue";
+import BCard from "~/ui-kit/BCard.vue";
 
 const props = defineProps({
   task: {

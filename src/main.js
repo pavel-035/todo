@@ -9,9 +9,9 @@ import indexDB from './indexDB'
 const app = createApp(App)
 const pinia = createPinia()
 
-// components and ui registration
+// components and ui-kit registration
 const vueFiles = import.meta.glob(
-    ['./components/**/*.vue', './ui/**/*.vue'],
+    ['./components/**/*.vue', './ui-kit/**/*.vue'],
     { eager: true }
 )
 

@@ -1,39 +1,39 @@
 <script setup>
-import { openModal } from 'jenesius-vue-modal'
+  import { openModal } from 'jenesius-vue-modal'
 
-import projectsApi from '../api'
+  import projectsApi from '../api'
 
-import BButton from '~/ui/BButton.vue'
-import AppModalConfirm from "~/components/AppModalConfirm.vue";
+  import BButton from '~/ui-kit/BButton.vue'
+  import AppModalConfirm from "~/components/AppModalConfirm.vue";
 
-// props & emits
-const props = defineProps({
-  projectId: {
-    type: String,
-    required: true
+  // props & emits
+  const props = defineProps({
+    projectId: {
+      type: String,
+      required: true
+    }
+  })
+  const emit = defineEmits('update')
+
+  // methods
+  async function deleteProject () {
+    await projectsApi.deleteProject(props.projectId)
   }
-})
-const emit = defineEmits('update')
 
-// methods
-async function deleteProject () {
-  await projectsApi.deleteProject(props.projectId)
-}
+  async function openDeleteProjectModal () {
+    const modal = await openModal(AppModalConfirm, {
+      title: 'Delete project?'
+    })
 
-async function openDeleteProjectModal () {
-  const modal = await openModal(AppModalConfirm, {
-    title: 'Delete project?'
-  })
-
-  modal.on('confirm', () => {
-    deleteProject(props.projectId)
-    emit('update')
-    modal.close()
-  })
-  modal.on('cancel', () => {
-    modal.close()
-  })
-}
+    modal.on('confirm', () => {
+      deleteProject(props.projectId)
+      emit('update')
+      modal.close()
+    })
+    modal.on('cancel', () => {
+      modal.close()
+    })
+  }
 </script>
 
 <template>

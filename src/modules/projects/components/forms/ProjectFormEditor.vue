@@ -1,6 +1,6 @@
 <script setup>
   import { defineModel } from 'vue'
-  import BInput from '~/ui/BInput.vue'
+  import BInput from '~/ui-kit/BInput.vue'
 
   const projectModel = defineModel('project')
 </script>
