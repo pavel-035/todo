@@ -1,15 +1,17 @@
 <script setup>
+import BCard from "~/ui/BCard.vue";
+import BButton from "~/ui/BButton.vue";
+import ProjectDel from "~/modules/projects/components/ProjectDel.vue";
+import ProjectEditor from "~/modules/projects/components/ProjectEditor.vue";
 
+// props & emits
 const props = defineProps({
-  id: {
-    type: String,
-    required: true
-  },
-  name: {
-    type: String,
+  project: {
+    type: Object,
     required: true
   }
 })
+const emit = defineEmits(['update'])
 
 </script>
 
@@ -17,14 +19,23 @@ const props = defineProps({
   <b-card class="project-card">
     <template #header>
       <div class="project-card__header">
-        <span class="project-card__name">{{ name }}</span>
+        <span class="project-card__name">{{ project.name }}</span>
       </div>
     </template>
     <template #footer>
       <div class="project-card__footer flex justify-end gap-1">
-        <b-button label="delete"/>
-        <b-button label="edit"/>
-        <b-button label="open"/>
+        <project-del
+          :project-id="project.id"
+          @update="emit('update')"
+        />
+        <project-editor
+          :project-id="project.id"
+          is-edit
+          @update="emit('update')"
+        />
+        <b-button
+          label="open"
+        />
       </div>
     </template>
   </b-card>

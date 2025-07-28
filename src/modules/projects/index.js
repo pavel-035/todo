@@ -1,5 +1,3 @@
-import ProjectList from "./components/ProjectList.vue"
+import ModuleProjects from './ModuleProjects.vue'
 
-export default {
-    'ProjectList': ProjectList
-}
+export default { ModuleProjects }

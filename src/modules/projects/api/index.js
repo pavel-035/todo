@@ -5,6 +5,7 @@ async function getProjects () {
         return await todoDB.projects.getAll()
     } catch (error) {
         console.error(error)
+        throw error
     }
 }
 
@@ -15,6 +16,7 @@ async function getProjectById (id) {
         return await todoDB.projects.getById(id)
     } catch (error) {
         console.error(error)
+        throw error
     }
 }
 
@@ -23,6 +25,7 @@ async function createProject (project) {
         return await todoDB.projects.post(project)
     } catch (error) {
         console.error(error)
+        throw error
     }
 }
 
@@ -33,6 +36,7 @@ async function updateProject (id, project) {
         return await todoDB.projects.patch(id, project)
     } catch (error) {
         console.error(error)
+        throw error
     }
 }
 
@@ -43,6 +47,7 @@ async function deleteProject (id) {
         return await todoDB.projects.del(id)
     } catch (error) {
         console.error(error)
+        throw error
     }
 }
 
