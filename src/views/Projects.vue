@@ -1,6 +1,6 @@
 <script setup>
   import { useProjectsStore } from '~/modules/projects/store/useProjectsStore.js'
-  import ProjectEditor from '~/modules/projects/components/ProjectEditor.vue'
+  import { ProjectEditor, ProjectList } from '~/modules/projects'
 
   // store
   const projectsStore = useProjectsStore()
@@ -8,8 +8,8 @@
 
 <template>
   <div>
-    <project-editor @update="projectsStore.fetchProjects()" />
-    <projects-list />
+    <project-editor @update="projectsStore.fetchProjectsWithTasks()" />
+    <project-list />
   </div>
 </template>
 
