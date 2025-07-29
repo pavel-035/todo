@@ -17,17 +17,28 @@ const props = defineProps({
   taskId: {
     type: String,
     required: false
+  },
+  projectId: {
+    type: String,
+    required: false
+  },
+  parentId: {
+    type: String,
+    required: false
   }
 })
 const emit = defineEmits(['update'])
-
 
 // computed
 const buttonLabel = computed(() => props.isEdit ? 'Edit task' : 'Create task')
 
 // methods
 async function createTask (task) {
-  await tasksApi.createTask(task)
+  await tasksApi.createTask({
+    ...task,
+    project_id: props.projectId,
+    parent_id: props.parentId
+  })
   emit('update')
 }
 async function editTask (task) {
