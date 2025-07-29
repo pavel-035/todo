@@ -35,6 +35,12 @@ export const useTasksStore = defineStore('useTasksStore', {
     getTasksList (state) {
       return state.tasks
     },
+    getTaskById (state) {
+      return (id) => {
+        return state.tasks.find(task => task.id === id)
+      }
+    },
+
     getStatusesList (state) {
       return state.statuses
     },
