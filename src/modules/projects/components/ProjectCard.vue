@@ -33,9 +33,12 @@ const emit = defineEmits(['update'])
           is-edit
           @update="emit('update')"
         />
-        <b-button
-          label="open"
-        />
+
+        <router-link :to="`/projects/${project.id}`">
+          <b-button
+            label="open"
+          />
+        </router-link>
       </div>
     </template>
   </b-card>
