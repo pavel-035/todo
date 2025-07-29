@@ -1,5 +1,4 @@
-import TaskList from "./components/TaskList.vue"
+import TaskList from '~/modules/tasks/components/TaskList.vue'
+import TaskEditor from '~/modules/tasks/components/TaskEditor.vue'
 
-export default {
-    'TaskList': TaskList
-}
+export { TaskList, TaskEditor }
